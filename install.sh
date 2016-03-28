@@ -5,10 +5,10 @@ exec > >(tee /tmp/installlog.txt)
 # Without this, only stdout would be captured
 exec 2>&1
 
-# Check if sources.list is a symlink and make a copy so `apt-get update` succeeds
-if [ -f /etc/apt/sources.list ] && [ -L /etc/apt/sources.list ]; then
-  sudo mv /etc/apt/sources.list /etc/apt/sources.list.old
-  sudo cp /etc/apt/sources.list.old /etc/apt/sources.list
+# Check if /etc/apt/source.list.d/c9.list is a symlink and make a copy so `apt-get update` succeeds
+if [ -f /etc/apt/sources.list.d/c9.list ] && [ -L /etc/apt/sources.list.d/c9.list ]; then
+  sudo mv /etc/apt/sources.list.d/c9.list /etc/apt/sources.list.d/c9.list.old
+  sudo cp /etc/apt/sources.list.d/c9.list.old /etc/apt/sources.list.d/c9.list
 fi
 
 # Update Composer
